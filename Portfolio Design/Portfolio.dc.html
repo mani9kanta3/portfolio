@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-b1edaf6f-e704-49fb-bd75-ec0db99c0fea/styles.css">
+<script src="_ds/modernist-b1edaf6f-e704-49fb-bd75-ec0db99c0fea/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --color-bg:#F5F1EC; --color-surface:#FBF8F4; --color-text:#201E1D;
+  --color-accent:#B3480C; --color-accent-600:#7C3306; --color-accent-700:#7C3306;
+  --color-divider:#37322E; --color-border:#B3B2B0;
+  --color-text-muted:#6C6A68;
+}
+html,body{margin:0;padding:0;background:#F5F1EC;color:#201E1D;font-family:'Archivo',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#B3480C;text-decoration:none}
+a:hover{color:#7C3306;text-decoration:underline}
+::selection{background:#B3480C;color:#F5F1EC}
+:focus-visible{outline:2px solid #B3480C;outline-offset:2px}
+@keyframes mkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+</style>
+</helmet>
+
+<div style="background:#F5F1EC;color:#201E1D;font-family:'Archivo',system-ui,sans-serif;min-height:100vh">
+
+<header style="display:flex;align-items:center;gap:48px;padding:22px 56px;border-bottom:2px solid #37322E;background:#F5F1EC;position:sticky;top:0;z-index:50">
+  <a href="#top" onClick="{{ goHome }}" style="font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#201E1D;text-decoration:none;display:flex;align-items:baseline;gap:4px">manikanta<span style="color:#B3480C;font-size:26px;line-height:0.6">.</span></a>
+  <nav style="display:flex;gap:34px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase">
+    <a href="#work" style="color:#201E1D;text-decoration:none" style-hover="color:#B3480C">Work</a>
+    <a href="#experience" style="color:#201E1D;text-decoration:none" style-hover="color:#B3480C">Experience</a>
+    <a href="#stack" style="color:#201E1D;text-decoration:none" style-hover="color:#B3480C">Stack</a>
+    <a href="#about" style="color:#201E1D;text-decoration:none" style-hover="color:#B3480C">About</a>
+  </nav>
+  <div style="flex:1"></div>
+  <a href="mailto:pudimanikanta3@gmail.com" style="font-size:12px;font-weight:600;letter-spacing:0.08em;color:#6C6A68;text-decoration:none" style-hover="color:#B3480C">pudimanikanta3@gmail.com</a>
+  <a href="#contact" style="background:#B3480C;color:#FBF8F4;padding:13px 22px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block" style-hover="background:#7C3306;color:#FBF8F4;text-decoration:none">Download résumé</a>
+</header>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main id="top">
+
+  <section style="display:grid;grid-template-columns:64px 1fr 42%;border-bottom:2px solid #37322E">
+    <div style="border-right:2px solid #B3B2B0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:44px">
+      <span style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#6C6A68">Hyderabad · India</span>
+    </div>
+    <div style="padding:74px 56px 56px 48px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:36px">
+        <span style="width:9px;height:9px;background:#B3480C;display:block"></span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C">AI / Python Engineer</span>
+      </div>
+      <h1 style="font-size:96px;line-height:0.92;letter-spacing:-0.045em;font-weight:700;margin:0 0 34px 0;max-width:13ch;text-wrap:pretty">Ship the model. Then ship the API.</h1>
+      <p style="font-size:19px;line-height:1.55;color:#524944;max-width:46ch;margin:0 0 44px 0">I build LLM retrieval systems and the production backends that serve them — a 3-stage RAG pipeline at 0.955 hit rate, an ML recommender at 0.97+ R². Both live, both containerised, both measured.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+        <a href="#work" style="background:#201E1D;color:#F5F1EC;padding:17px 30px;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none" style-hover="background:#37322E;color:#F5F1EC;text-decoration:none">Selected work</a>
+        <a href="#contact" style="border:2px solid #201E1D;color:#201E1D;padding:15px 30px;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none" style-hover="background:#B3480C;border-color:#B3480C;color:#FBF8F4;text-decoration:none">Get in touch</a>
+        <div style="display:flex;gap:22px;margin-left:12px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase">
+          <a href="https://github.com/Mani9kanta3" target="_blank" style="color:#6C6A68;text-decoration:none" style-hover="color:#B3480C">GitHub</a>
+          <a href="https://linkedin.com/in/manikanta3/" target="_blank" style="color:#6C6A68;text-decoration:none" style-hover="color:#B3480C">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-left:2px solid #B3B2B0;position:relative;overflow:hidden;min-height:640px;display:flex;align-items:center;justify-content:center">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(#B3B2B0 1px,transparent 1px),linear-gradient(90deg,#B3B2B0 1px,transparent 1px);background-size:64px 64px;opacity:0.35"></div>
+      <div style="position:absolute;width:74%;aspect-ratio:1/1.18;background:#B3480C;border-radius:50%;animation:mkFloat 9s ease-in-out infinite"></div>
+      <div style="position:relative;width:60%;aspect-ratio:1/1.3;z-index:2">
+        <image-slot id="mk-portrait" shape="circle" fit="cover" placeholder="Drop your portrait here"></image-slot>
+      </div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 28px;display:flex;justify-content:space-between;background:#F5F1EC;border-top:2px solid #37322E;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#6C6A68;z-index:3">
+        <span>B.E. CSE (AI &amp; ML) · 2025</span>
+        <span style="color:#B3480C">Open to roles</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid #37322E">
+    <div style="padding:38px 32px;border-right:2px solid #B3B2B0">
+      <div style="font-size:52px;font-weight:700;letter-spacing:-0.04em;line-height:1;color:#B3480C">0.955</div>
+      <div style="margin-top:12px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">RAG retrieval hit rate</div>
+    </div>
+    <div style="padding:38px 32px;border-right:2px solid #B3B2B0">
+      <div style="font-size:52px;font-weight:700;letter-spacing:-0.04em;line-height:1">0.941</div>
+      <div style="margin-top:12px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">Answer faithfulness</div>
+    </div>
+    <div style="padding:38px 32px;border-right:2px solid #B3B2B0">
+      <div style="font-size:52px;font-weight:700;letter-spacing:-0.04em;line-height:1">0.97<span style="font-size:30px">+</span></div>
+      <div style="margin-top:12px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">R², suitability model</div>
+    </div>
+    <div style="padding:38px 32px">
+      <div style="font-size:52px;font-weight:700;letter-spacing:-0.04em;line-height:1">6.7M<span style="font-size:30px">+</span></div>
+      <div style="margin-top:12px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">Records analysed</div>
+    </div>
+  </section>
+
+  <section id="work" style="border-bottom:2px solid #37322E">
+    <div style="display:flex;align-items:baseline;gap:24px;padding:56px 56px 32px 56px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C">01 — Selected work</span>
+      <div style="flex:1;height:2px;background:#B3B2B0"></div>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6C6A68">Two systems, both in production</span>
+    </div>
+
+    <article style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #B3B2B0">
+      <div style="padding:48px 48px 48px 56px;border-right:2px solid #B3B2B0">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#6C6A68;margin-bottom:20px">January 2026 · Production RAG</div>
+        <h2 style="font-size:56px;line-height:1;letter-spacing:-0.035em;font-weight:700;margin:0 0 20px 0">PolicyQA</h2>
+        <p style="font-size:17px;line-height:1.55;color:#524944;margin:0 0 28px 0;max-width:44ch">A 3-stage retrieval pipeline over nine Indian labour-law documents. BM25 keyword search fused with vector semantics by Reciprocal Rank Fusion, then cross-encoder reranking down to five passages. Quality gates block deploys when metrics slip.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px">
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">LangChain</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">Gemini</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">ChromaDB</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">FastAPI</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">Docker</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">Cloud Run</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">Langfuse</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center">
+          <button type="button" onClick="{{ openPolicyQA }}" style="background:#B3480C;color:#FBF8F4;border:none;padding:16px 28px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer" style-hover="background:#7C3306">Read the case study →</button>
+          <a href="https://github.com/Mani9kanta3" target="_blank" style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#201E1D;text-decoration:none;border-bottom:2px solid #201E1D;padding-bottom:2px" style-hover="color:#B3480C;text-decoration:none">GitHub</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
+        <div style="padding:36px 32px;border-right:2px solid #B3B2B0;border-bottom:2px solid #B3B2B0">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#B3480C">0.955</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6C6A68">Hit rate</div>
+        </div>
+        <div style="padding:36px 32px;border-bottom:2px solid #B3B2B0">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em">0.964</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6C6A68">Citation accuracy</div>
+        </div>
+        <div style="padding:36px 32px;border-right:2px solid #B3B2B0">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em">22</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6C6A68">Eval questions, LLM-as-judge</div>
+        </div>
+        <div style="padding:36px 32px;background:#201E1D;color:#F5F1EC">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em">3</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#B3B2B0">Retrieval stages</div>
+        </div>
+      </div>
+    </article>
+
+    <article style="display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #B3B2B0">
+      <div style="padding:48px 48px 48px 56px;border-right:2px solid #B3B2B0">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#6C6A68;margin-bottom:20px">February 2026 · ML + Backend</div>
+        <h2 style="font-size:56px;line-height:1;letter-spacing:-0.035em;font-weight:700;margin:0 0 20px 0">EcoPackAI</h2>
+        <p style="font-size:17px;line-height:1.55;color:#524944;margin:0 0 28px 0;max-width:44ch">Ranks 25 packaging materials across 13 product categories by suitability, cost and carbon impact. A composite eco-score makes the ranking readable; eleven REST endpoints and a normalised PostgreSQL schema make it usable.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px">
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">Flask</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">XGBoost</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">scikit-learn</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">PostgreSQL</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">SQLAlchemy</span>
+          <span style="border:2px solid #B3B2B0;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#524944">Render</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:center">
+          <button type="button" onClick="{{ openEcoPack }}" style="background:#B3480C;color:#FBF8F4;border:none;padding:16px 28px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer" style-hover="background:#7C3306">Read the case study →</button>
+          <a href="https://github.com/Mani9kanta3" target="_blank" style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#201E1D;text-decoration:none;border-bottom:2px solid #201E1D;padding-bottom:2px" style-hover="color:#B3480C;text-decoration:none">GitHub</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr">
+        <div style="padding:36px 32px;border-right:2px solid #B3B2B0;border-bottom:2px solid #B3B2B0">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em;color:#B3480C">0.98+</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6C6A68">R², CO₂ impact</div>
+        </div>
+        <div style="padding:36px 32px;border-bottom:2px solid #B3B2B0">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em">2,275</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6C6A68">Training samples</div>
+        </div>
+        <div style="padding:36px 32px;border-right:2px solid #B3B2B0">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em">15</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6C6A68">Engineered features</div>
+        </div>
+        <div style="padding:36px 32px;background:#201E1D;color:#F5F1EC">
+          <div style="font-size:40px;font-weight:700;letter-spacing:-0.03em">11</div>
+          <div style="margin-top:8px;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#B3B2B0">REST endpoints</div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience" style="border-bottom:2px solid #37322E">
+    <div style="display:flex;align-items:baseline;gap:24px;padding:56px 56px 32px 56px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C">02 — Experience</span>
+      <div style="flex:1;height:2px;background:#B3B2B0"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:220px 1fr;border-top:2px solid #B3B2B0;padding:40px 56px;gap:48px">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Dec 2025 — Feb 2026</div>
+        <div style="margin-top:8px;font-size:12px;color:#6C6A68;letter-spacing:0.08em;text-transform:uppercase">Remote, India</div>
+      </div>
+      <div>
+        <h3 style="font-size:30px;font-weight:700;letter-spacing:-0.025em;margin:0 0 6px 0">Data Science Intern</h3>
+        <div style="font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#B3480C;margin-bottom:20px">Infosys Springboard</div>
+        <ul style="margin:0;padding:0;list-style:none;display:grid;gap:12px;max-width:78ch">
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:16px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>Built an AI packaging recommendation engine across 25 materials and 13 categories, returning ranked suitability, cost and CO₂ predictions in real time.</span></li>
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:16px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>Trained Random Forest and XGBoost on 2,275 samples with 15 engineered features — 0.97+ R² suitability, 0.98+ R² CO₂ estimation.</span></li>
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:16px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>Served the models through a Flask REST API with joblib model loading, deployed on Render with managed PostgreSQL.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:220px 1fr;border-top:2px solid #B3B2B0;padding:40px 56px;gap:48px">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase">Jan 2025 — Jun 2025</div>
+        <div style="margin-top:8px;font-size:12px;color:#6C6A68;letter-spacing:0.08em;text-transform:uppercase">Hyderabad, India</div>
+      </div>
+      <div>
+        <h3 style="font-size:30px;font-weight:700;letter-spacing:-0.025em;margin:0 0 6px 0">Data Analyst Intern</h3>
+        <div style="font-size:14px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#B3480C;margin-bottom:20px">Techmatrics Solution</div>
+        <ul style="margin:0;padding:0;list-style:none;display:grid;gap:12px;max-width:78ch">
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:16px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>Analysed 6.7M+ retail transactions and showed that 20% discounting cut net revenue despite higher volume — delivered as a pricing recommendation.</span></li>
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:16px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>Wrote multi-table JOINs, CTEs and window functions against PostgreSQL, cutting query time and removing manual prep from recurring reports.</span></li>
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:16px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>Built Tableau dashboards on revenue by category, customer segment and region, plus reusable Python cleaning and validation functions.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" style="border-bottom:2px solid #37322E">
+    <div style="display:flex;align-items:baseline;gap:24px;padding:56px 56px 32px 56px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C">03 — Stack</span>
+      <div style="flex:1;height:2px;background:#B3B2B0"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid #B3B2B0">
+      <div style="padding:36px 32px 36px 56px;border-right:2px solid #B3B2B0;border-bottom:2px solid #B3B2B0">
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3480C;margin:0 0 16px 0">Languages &amp; core</h4>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#201E1D">Python · SQL · Data Structures &amp; Algorithms · OOP · REST API design · System design basics · Statistics &amp; probability</p>
+      </div>
+      <div style="padding:36px 32px;border-right:2px solid #B3B2B0;border-bottom:2px solid #B3B2B0">
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3480C;margin:0 0 16px 0">AI &amp; LLM</h4>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#201E1D">LangChain · Google Gemini · HuggingFace Transformers · ChromaDB · Langfuse · Hybrid search (BM25 + vector) · Cross-encoder reranking · Retrieval evaluation</p>
+      </div>
+      <div style="padding:36px 56px 36px 32px;border-bottom:2px solid #B3B2B0">
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3480C;margin:0 0 16px 0">ML &amp; data</h4>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#201E1D">PyTorch · scikit-learn · XGBoost · Pandas · NumPy · Feature engineering · Tableau</p>
+      </div>
+      <div style="padding:36px 32px 36px 56px;border-right:2px solid #B3B2B0">
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3480C;margin:0 0 16px 0">Backend</h4>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#201E1D">FastAPI · Flask · Pydantic · Uvicorn · Middleware &amp; rate limiting · Async programming · Pytest</p>
+      </div>
+      <div style="padding:36px 32px;border-right:2px solid #B3B2B0">
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3480C;margin:0 0 16px 0">Databases</h4>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#201E1D">PostgreSQL · MySQL · SQLAlchemy ORM · Schema design · Query optimisation · ChromaDB</p>
+      </div>
+      <div style="padding:36px 56px 36px 32px">
+        <h4 style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3480C;margin:0 0 16px 0">DevOps &amp; cloud</h4>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#201E1D">Docker · Docker Compose · Git · GitHub Actions · CI/CD · Google Cloud Run · Render · Linux · Streamlit</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid #37322E">
+    <div style="padding:56px;border-right:2px solid #B3B2B0">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C">04 — About</span>
+      <h2 style="font-size:44px;line-height:1.05;letter-spacing:-0.035em;font-weight:700;margin:28px 0 24px 0;max-width:20ch">I care about the number after the demo.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#524944;margin:0 0 18px 0;max-width:52ch">A retrieval system that answers well in a notebook and drifts in production isn't finished. So I build the evaluation harness first — a 22-question dataset, LLM-as-judge scoring for faithfulness and citation accuracy, quality gates in CI that refuse the deploy when the metric degrades.</p>
+      <p style="font-size:17px;line-height:1.65;color:#524944;margin:0;max-width:52ch">Six months of paid analyst work taught me the other half: the model is only as useful as the question it answers. Before that, a YOLOv8 terrain-identification paper and a traffic-sign detector at 92% accuracy. Now: Hyderabad, and open to AI/Python engineering roles.</p>
+    </div>
+    <div>
+      <div style="padding:40px 56px;border-bottom:2px solid #B3B2B0">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#6C6A68;margin-bottom:22px">Research &amp; certifications</div>
+        <div style="display:grid;gap:18px">
+          <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;padding-bottom:16px;border-bottom:2px solid #E4DED6">
+            <div><div style="font-size:18px;font-weight:600;line-height:1.3">Off-Road Terrain Identification using YOLOv8</div><div style="font-size:14px;color:#6C6A68;margin-top:4px">Journal of Electrical Systems — publication</div></div>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;color:#6C6A68">Dec 2023</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;padding-bottom:16px;border-bottom:2px solid #E4DED6">
+            <div><div style="font-size:18px;font-weight:600;line-height:1.3">NextLeap Data Analyst Fellowship</div><div style="font-size:14px;color:#6C6A68;margin-top:4px">Top Fellow recognition</div></div>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;color:#6C6A68">Jul 2025</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline">
+            <div><div style="font-size:18px;font-weight:600;line-height:1.3">SQL (Intermediate)</div><div style="font-size:14px;color:#6C6A68;margin-top:4px">HackerRank certification</div></div>
+            <span style="font-size:12px;font-weight:600;letter-spacing:0.08em;color:#6C6A68">Mar 2025</span>
+          </div>
+        </div>
+      </div>
+      <div style="padding:40px 56px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#6C6A68;margin-bottom:22px">Education</div>
+        <div style="font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2">B.E. Computer Science — AI &amp; Machine Learning</div>
+        <div style="margin-top:10px;font-size:16px;color:#524944">Chandigarh University, Mohali · CGPA 8.0/10 · 2021–2025</div>
+        <div style="margin-top:16px;font-size:15px;line-height:1.6;color:#6C6A68">Final year project: real-time traffic sign detection with YOLOv8, 92% classification accuracy.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#B3480C;color:#FBF8F4;padding:80px 56px 64px 56px">
+    <span style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#F5D9CB">05 — Contact</span>
+    <h2 style="font-size:82px;line-height:0.94;letter-spacing:-0.045em;font-weight:700;margin:26px 0 40px 0;max-width:22ch">Hiring for AI or Python? Let's talk.</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid #FBF8F4;max-width:1100px">
+      <a href="uploads/ManikantaPudi_AI_Engineer_Resume.docx" download="ManikantaPudi_AI_Engineer_Resume.docx" style="padding:30px 32px 30px 0;border-right:2px solid #FBF8F4;border-bottom:2px solid #FBF8F4;color:#FBF8F4;text-decoration:none;display:block" style-hover="background:#7C3306;color:#FBF8F4;text-decoration:none;padding-left:32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#F5D9CB;margin-bottom:10px">Résumé — download</div>
+        <div style="font-size:26px;font-weight:700;letter-spacing:-0.02em">AI Engineer ↓</div>
+      </a>
+      <a href="uploads/ManikantaPudi_Python_Developer_Resume.docx" download="ManikantaPudi_Python_Developer_Resume.docx" style="padding:30px 32px;border-bottom:2px solid #FBF8F4;color:#FBF8F4;text-decoration:none;display:block" style-hover="background:#7C3306;color:#FBF8F4;text-decoration:none">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#F5D9CB;margin-bottom:10px">Résumé — download</div>
+        <div style="font-size:26px;font-weight:700;letter-spacing:-0.02em">Python Developer ↓</div>
+      </a>
+      <a href="mailto:pudimanikanta3@gmail.com" style="padding:30px 32px 30px 0;border-right:2px solid #FBF8F4;color:#FBF8F4;text-decoration:none;display:block" style-hover="background:#7C3306;color:#FBF8F4;text-decoration:none;padding-left:32px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#F5D9CB;margin-bottom:10px">Email</div>
+        <div style="font-size:22px;font-weight:600;letter-spacing:-0.01em">pudimanikanta3@gmail.com</div>
+      </a>
+      <div style="padding:30px 32px;display:flex;gap:36px;align-items:flex-end">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#F5D9CB;margin-bottom:10px">Phone</div>
+          <div style="font-size:22px;font-weight:600">+91 90634 24060</div>
+        </div>
+        <div style="display:flex;gap:20px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">
+          <a href="https://github.com/Mani9kanta3" target="_blank" style="color:#FBF8F4;text-decoration:none;border-bottom:2px solid #FBF8F4" style-hover="color:#F5D9CB;text-decoration:none">GitHub</a>
+          <a href="https://linkedin.com/in/manikanta3/" target="_blank" style="color:#FBF8F4;text-decoration:none;border-bottom:2px solid #FBF8F4" style-hover="color:#F5D9CB;text-decoration:none">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="display:flex;justify-content:space-between;align-items:center;padding:26px 56px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">
+    <span>Manikanta Pudi — Hyderabad, Telangana</span>
+    <span>manikantapudi.com</span>
+  </footer>
+</main>
+</sc-if>
+
+<sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+<main style="min-height:100vh">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 56px;border-bottom:2px solid #B3B2B0">
+    <button type="button" onClick="{{ goHome }}" style="background:none;border:none;padding:0;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#201E1D;cursor:pointer" style-hover="color:#B3480C">← All work</button>
+    <button type="button" onClick="{{ openOther }}" style="background:none;border:2px solid #201E1D;padding:11px 20px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#201E1D;cursor:pointer" style-hover="background:#B3480C;border-color:#B3480C;color:#FBF8F4">Next project →</button>
+  </div>
+
+  <section style="display:grid;grid-template-columns:1fr 380px;border-bottom:2px solid #37322E">
+    <div style="padding:64px 56px;border-right:2px solid #B3B2B0">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C;margin-bottom:26px">{{ p.kicker }}</div>
+      <h1 style="font-size:88px;line-height:0.94;letter-spacing:-0.045em;font-weight:700;margin:0 0 28px 0">{{ p.title }}</h1>
+      <p style="font-size:21px;line-height:1.5;color:#524944;margin:0;max-width:50ch">{{ p.lede }}</p>
+    </div>
+    <div>
+      <div style="padding:28px 32px;border-bottom:2px solid #B3B2B0">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#6C6A68;margin-bottom:8px">Role</div>
+        <div style="font-size:17px;font-weight:600">{{ p.role }}</div>
+      </div>
+      <div style="padding:28px 32px;border-bottom:2px solid #B3B2B0">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#6C6A68;margin-bottom:8px">Timeline</div>
+        <div style="font-size:17px;font-weight:600">{{ p.timeline }}</div>
+      </div>
+      <div style="padding:28px 32px;border-bottom:2px solid #B3B2B0">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#6C6A68;margin-bottom:8px">Status</div>
+        <div style="font-size:17px;font-weight:600;color:#B3480C">{{ p.status }}</div>
+      </div>
+      <div style="padding:28px 32px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://github.com/Mani9kanta3" target="_blank" style="background:#201E1D;color:#F5F1EC;padding:13px 20px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none" style-hover="background:#B3480C;color:#FBF8F4;text-decoration:none">GitHub</a>
+        <a href="https://github.com/Mani9kanta3" target="_blank" style="border:2px solid #201E1D;color:#201E1D;padding:11px 20px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none" style-hover="background:#B3480C;border-color:#B3480C;color:#FBF8F4;text-decoration:none">Live app</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid #37322E">
+    <sc-for list="{{ p.metrics }}" as="m" hint-placeholder-count="4">
+      <div style="padding:36px 32px;border-right:2px solid #B3B2B0">
+        <div style="font-size:46px;font-weight:700;letter-spacing:-0.04em;line-height:1;color:#B3480C">{{ m.value }}</div>
+        <div style="margin-top:12px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">{{ m.label }}</div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid #37322E">
+    <div style="padding:56px;border-right:2px solid #B3B2B0">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C;margin-bottom:22px">The problem</div>
+      <p style="font-size:18px;line-height:1.6;color:#201E1D;margin:0 0 18px 0;max-width:52ch">{{ p.problem1 }}</p>
+      <p style="font-size:18px;line-height:1.6;color:#524944;margin:0;max-width:52ch">{{ p.problem2 }}</p>
+    </div>
+    <div style="padding:56px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C;margin-bottom:22px">What I'd do next</div>
+      <ul style="margin:0;padding:0;list-style:none;display:grid;gap:14px">
+        <sc-for list="{{ p.next }}" as="n" hint-placeholder-count="3">
+          <li style="display:grid;grid-template-columns:16px 1fr;gap:12px;font-size:17px;line-height:1.55;color:#524944"><span style="color:#B3480C;font-weight:700">—</span><span>{{ n }}</span></li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section style="border-bottom:2px solid #37322E;padding:56px 56px 64px 56px">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C;margin-bottom:34px">Architecture</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid #37322E">
+      <sc-for list="{{ p.stages }}" as="s" hint-placeholder-count="3">
+        <div style="padding:34px 30px;border-right:2px solid #B3B2B0">
+          <div style="font-size:13px;font-weight:700;letter-spacing:0.2em;color:#B3480C;margin-bottom:16px">{{ s.step }}</div>
+          <h3 style="font-size:26px;font-weight:700;letter-spacing:-0.025em;margin:0 0 12px 0;line-height:1.15">{{ s.name }}</h3>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#524944">{{ s.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid #37322E">
+    <div style="padding:56px;border-right:2px solid #B3B2B0">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C;margin-bottom:28px">Evaluation</div>
+      <table style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:0 0 12px 0;border-bottom:2px solid #37322E;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">Measure</th>
+            <th style="text-align:right;padding:0 0 12px 0;border-bottom:2px solid #37322E;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">Result</th>
+            <th style="text-align:right;padding:0 0 12px 0;border-bottom:2px solid #37322E;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#6C6A68">Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ p.evalRows }}" as="r" hint-placeholder-count="4">
+            <tr>
+              <td style="padding:16px 0;border-bottom:2px solid #E4DED6;font-size:16px;font-weight:600">{{ r.measure }}</td>
+              <td style="padding:16px 0;border-bottom:2px solid #E4DED6;font-size:18px;font-weight:700;text-align:right;color:#B3480C">{{ r.result }}</td>
+              <td style="padding:16px 0;border-bottom:2px solid #E4DED6;font-size:14px;text-align:right;color:#6C6A68">{{ r.method }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:56px">
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#B3480C;margin-bottom:28px">Stack</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ p.stack }}" as="t" hint-placeholder-count="8">
+          <span style="border:2px solid #37322E;padding:9px 15px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#201E1D">{{ t }}</span>
+        </sc-for>
+      </div>
+      <div style="margin-top:40px;padding:28px 30px;background:#201E1D;color:#F5F1EC">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#B3B2B0;margin-bottom:12px">Deployment</div>
+        <p style="margin:0;font-size:17px;line-height:1.55">{{ p.deploy }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#B3480C;color:#FBF8F4;padding:64px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
+    <h2 style="font-size:52px;line-height:1;letter-spacing:-0.04em;font-weight:700;margin:0;max-width:24ch">Want the walkthrough? I'll show you the repo.</h2>
+    <div style="display:flex;gap:14px">
+      <a href="mailto:pudimanikanta3@gmail.com" style="background:#FBF8F4;color:#B3480C;padding:18px 30px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none" style-hover="background:#201E1D;color:#FBF8F4;text-decoration:none">Email me</a>
+      <button type="button" onClick="{{ goHome }}" style="background:none;border:2px solid #FBF8F4;color:#FBF8F4;padding:16px 28px;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer" style-hover="background:#7C3306">Back to work</button>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const PROJECTS = {
+  policyqa: {
+    kicker: "Production RAG · Jan 2026",
+    title: "PolicyQA",
+    lede: "A question-answering service over nine Indian labour-law documents, built so that every answer can be traced back to the clause it came from — and so the pipeline cannot ship if its numbers slip.",
+    role: "Solo — retrieval, eval, deploy",
+    timeline: "January 2026",
+    status: "Live on Cloud Run",
+    metrics: [
+      { value: "0.955", label: "Retrieval hit rate" },
+      { value: "0.941", label: "Answer faithfulness" },
+      { value: "0.964", label: "Citation accuracy" },
+      { value: "9", label: "Policy documents" }
+    ],
+    problem1: "Labour-law questions are keyword-sensitive — a section number matters as much as the semantics around it. Pure vector search misses exact references; pure keyword search misses paraphrase.",
+    problem2: "So the answer had to be hybrid, and it had to be verifiable: a legal answer without a citation is worse than no answer at all.",
+    stages: [
+      { step: "STAGE 01", name: "Hybrid retrieval", body: "BM25 keyword search runs alongside vector semantic search over ChromaDB, and the two candidate lists are merged by Reciprocal Rank Fusion." },
+      { step: "STAGE 02", name: "Cross-encoder rerank", body: "ms-marco-MiniLM rescores the fused candidates pairwise against the query, cutting to the top five passages actually worth sending to the model." },
+      { step: "STAGE 03", name: "Grounded generation", body: "Google Gemini answers from those five passages only, with citations back to source clauses; Langfuse traces every call for inspection." }
+    ],
+    evalRows: [
+      { measure: "Retrieval hit rate", result: "0.955", method: "22-question set" },
+      { measure: "Answer faithfulness", result: "0.941", method: "LLM-as-judge" },
+      { measure: "Citation accuracy", result: "0.964", method: "LLM-as-judge" },
+      { measure: "Deploy gate", result: "Pass/fail", method: "CI quality gate" }
+    ],
+    stack: ["Python", "LangChain", "Google Gemini", "ChromaDB", "BM25", "Cross-encoder", "FastAPI", "Streamlit", "Docker", "Cloud Run", "Langfuse"],
+    deploy: "Containerised with Docker and deployed to Google Cloud Run — FastAPI backend, Streamlit front end, automated evaluation as a quality gate that blocks the deploy on metric degradation.",
+    next: [
+      "Grow the eval set past 22 questions and stratify it by document, so per-source regressions surface individually.",
+      "Swap in a fine-tuned reranker and A/B it against ms-marco on the same harness.",
+      "Add answer-level abstention when top-passage scores fall below threshold, rather than answering weakly."
+    ]
+  },
+  ecopackai: {
+    kicker: "ML + Backend · Feb 2026",
+    title: "EcoPackAI",
+    lede: "A recommendation platform that ranks 25 packaging materials across 13 product categories by suitability, cost and carbon impact — and explains the ranking instead of just emitting a score.",
+    role: "ML + backend, Infosys Springboard",
+    timeline: "December 2025 — February 2026",
+    status: "Live on Render",
+    metrics: [
+      { value: "0.97+", label: "R², suitability" },
+      { value: "0.98+", label: "R², CO₂ impact" },
+      { value: "2,275", label: "Training samples" },
+      { value: "11", label: "REST endpoints" }
+    ],
+    problem1: "Packaging choices trade three things against each other — fitness for the product, unit cost, and carbon footprint — and teams were making the call on intuition.",
+    problem2: "A single opaque score would not have been trusted, so the ranking needed an interpretable composite: biodegradability, recyclability and carbon impact folded into one eco-score you can decompose.",
+    stages: [
+      { step: "STAGE 01", name: "Feature engineering", body: "15 engineered features over 2,275 samples, including a composite eco-score combining biodegradability, recyclability and carbon impact." },
+      { step: "STAGE 02", name: "Model training", body: "Random Forest and XGBoost trained and compared for suitability and CO₂ regression, serialised with joblib for serving." },
+      { step: "STAGE 03", name: "Serving layer", body: "Flask REST API with 11 endpoints over a normalised PostgreSQL schema via SQLAlchemy ORM, rate limited at 60 req/min/IP." }
+    ],
+    evalRows: [
+      { measure: "Suitability prediction", result: "0.97+ R²", method: "RF / XGBoost" },
+      { measure: "CO₂ impact estimation", result: "0.98+ R²", method: "XGBoost" },
+      { measure: "Materials covered", result: "25", method: "13 categories" },
+      { measure: "Rate limit", result: "60/min", method: "Per-IP middleware" }
+    ],
+    stack: ["Python", "Flask", "scikit-learn", "XGBoost", "Pandas", "NumPy", "PostgreSQL", "SQLAlchemy ORM", "REST API", "Chart.js", "Render"],
+    deploy: "Deployed on Render with a managed PostgreSQL instance, structured error handling and input validation at the API boundary, plus a Chart.js analytics dashboard over the stored predictions.",
+    next: [
+      "Add SHAP attributions per recommendation so the eco-score decomposition is visible in the response.",
+      "Move model serving behind a versioned registry rather than joblib files on disk.",
+      "Backfill real supplier cost data to replace the synthetic cost distribution."
+    ]
+  }
+};
+
+class Component extends DCLogic {
+  state = { view: "home" };
+  set(view) {
+    this.setState({ view });
+    if (typeof window !== "undefined") window.scrollTo(0, 0);
+  }
+  renderVals() {
+    const view = this.state.view;
+    const isDetail = view === "policyqa" || view === "ecopackai";
+    return {
+      isHome: view === "home",
+      isDetail,
+      p: PROJECTS[view] || PROJECTS.policyqa,
+      goHome: () => this.set("home"),
+      openPolicyQA: () => this.set("policyqa"),
+      openEcoPack: () => this.set("ecopackai"),
+      openOther: () => this.set(view === "policyqa" ? "ecopackai" : "policyqa")
+    };
+  }
+}
+</script>
+</body>
+</html>

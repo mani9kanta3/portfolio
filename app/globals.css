@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a class on <html>, set before paint by the script in layout.tsx. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens — ported verbatim from the Claude Design artboards.
+
+   Source of truth is the inline :root block inside the artboards at
+   Portfolio Design/Portfolio.dc.html (light) and Portfolio Dark.dc.html
+   (dark) — NOT the bundled _ds/modernist-* stylesheet, which documents a red
+   palette that the artboards deliberately override.
+--------------------------------------------------------------------------- */
+
+:root {
+  --bg: #f5f1ec;
+  --surface: #fbf8f4;
+  --text: #201e1d;
+  --text-muted: #6c6a68;
+  --accent: #b3480c;
+  --accent-hover: #7c3306;
+  /* Heavy 2px rules between major sections. */
+  --divider: #37322e;
+  /* Lighter hairline rules inside a section's grid. */
+  --border: #b3b2b0;
+  --on-accent: #fbf8f4;
+}
+
+.dark {
+  --bg: #1b1918;
+  --surface: #262322;
+  --text: #f5f1ec;
+  --text-muted: #8f8b88;
+  --accent: #e05a0f;
+  --accent-hover: #b3480c;
+  --divider: #524944;
+  --border: #3a3533;
+  --on-accent: #1b1918;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-divider: var(--divider);
+  --color-edge: var(--border);
+  --color-on-accent: var(--on-accent);
+
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+
+  /* Type scale, taken from the sizes actually used in the artboards.
+     `label`/`micro` are the wide-tracked uppercase labels; `display-*` are the
+     tight-tracked hero and section numerals. */
+  --text-micro: 11px;
+  --text-label: 12px;
+  --text-xs: 13px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-body: 17px;
+  --text-lg: 19px;
+  --text-xl: 22px;
+  --text-2xl: 26px;
+  --text-3xl: 30px;
+  --text-4xl: 40px;
+  --text-5xl: 52px;
+  --text-6xl: 56px;
+  --text-7xl: 72px;
+  --text-8xl: 96px;
+
+  /* Modernist keeps every corner square. Do not introduce a radius. */
+  --radius-none: 0px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    /* Radius 0 is a deliberate rule of the design system, not an oversight. */
+    border-radius: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor jumps so the sticky header never covers a section heading. */
+    scroll-padding-top: 76px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    font-size: var(--text-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Tabular figures keep the stat rows from jittering between themes. */
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  /* Every content photograph prints in pure black and white. */
+  .grayscale-photo {
+    filter: grayscale(100%) contrast(1.05);
+  }
+
+  /* The wide-tracked uppercase label used for kickers, nav and meta rows. */
+  .label {
+    font-size: var(--text-label);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  /* Hero and section headings: tight tracking, never centered. */
+  .display {
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    text-wrap: pretty;
+  }
+}
