@@ -1,6 +1,6 @@
 const LINKS = [
-  { href: "https://github.com/mani9kanta3", label: "GitHub" },
-  { href: "https://www.linkedin.com/in/manikantapudi", label: "LinkedIn" },
+  { href: "https://github.com/Mani9kanta3", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/manikanta3/", label: "LinkedIn" },
 ];
 
 export function SiteFooter() {

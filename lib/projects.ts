@@ -7,10 +7,11 @@
  * Claude Design artboards.
  */
 
-export type Track = "ai" | "full-stack";
+export type Track = "ai" | "front-end" | "full-stack";
 
 export const TRACK_LABEL: Record<Track, string> = {
   ai: "AI / ML",
+  "front-end": "Front end",
   "full-stack": "Full stack",
 };
 
@@ -208,34 +209,78 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    // Placeholder content below is limited to what is verifiable from the repo
-    // and the live deployment. Awaiting real case-study detail from Manikanta —
-    // deliberately no invented metrics.
     slug: "medicare-hms",
-    track: "full-stack",
-    kicker: "Full stack · In progress",
+    // Front end only today. Flip to "full-stack" when the Flask/Django backend
+    // lands — the badge should not claim a backend that does not exist yet.
+    track: "front-end",
+    kicker: "Front end · In progress",
     title: "MediCare HMS",
     summary:
-      "A hospital management system covering patient records, appointments and clinical workflow. React and Vite on the front end, deployed continuously to Vercel. Actively in development.",
-    lede: "A hospital management system built to handle the everyday clinical workflow — patients, appointments and records — as one coherent application rather than a set of disconnected forms.",
+      "The patient-facing side of a hospital system — browse doctors, book appointments, register, and a protected dashboard. Refactored out of a duplicated HTML/Bootstrap site into a React component architecture with custom hooks for fetching and debounced search. Backend is next.",
+    lede: "The patient-facing half of a hospital management system: browsing doctors, booking appointments, registering, and a protected dashboard behind a login. It began as a plain HTML and Bootstrap site and was rebuilt in React to stop copying the same navbar and footer into every page.",
     role: "Solo — front end, application architecture",
     timeline: "In progress, 2026",
-    status: "In development",
-    repo: "https://github.com/mani9kanta3/hospital-management-system",
+    status: "Front end live · backend in progress",
+    repo: "https://github.com/Mani9kanta3/hospital-management-system",
     live: "https://hospital-management-system-ashy-beta.vercel.app",
-    metrics: [],
-    cardMetrics: [],
-    tags: ["React", "Vite", "JavaScript", "Vercel"],
+    metrics: [
+      { value: "10", label: "Routes" },
+      { value: "5", label: "Behind auth" },
+      { value: "8", label: "Breakpoints tested" },
+      { value: "2", label: "Custom hooks" },
+    ],
+    cardMetrics: [
+      { value: "10", label: "Routes, 5 protected" },
+      { value: "8", label: "Breakpoints, no h-scroll" },
+      { value: "2", label: "Custom hooks" },
+      { value: "500ms", label: "Search debounce" },
+    ],
+    tags: ["React 19", "Vite 8", "React Router 7", "Bootstrap 5.3", "Axios", "Vercel"],
     problem1:
-      "Hospital software tends to grow as a pile of independent screens, so the same patient record is re-entered in three places and nothing reconciles.",
+      "The original build was plain HTML and Bootstrap, which meant the navbar, footer and card markup were copy-pasted across every page. Changing a nav link was a find-and-replace across the whole site, and the pages had already started to drift apart.",
     problem2:
-      "The goal here is a single application model — one source of truth for a patient, with appointments and records hanging off it — so the interface stays consistent as scope grows.",
-    stages: [],
-    evalRows: [],
-    stack: ["React", "Vite", "JavaScript", "ESLint", "Vercel"],
+      "So the rebuild was about structure rather than features: shared layout as components, data fetching behind one reusable hook, and routing that moves between views without a page reload.",
+    stages: [
+      {
+        step: "STAGE 01",
+        name: "Component refactor",
+        body: "Persistent layout — Navbar and Footer — lifted into shared components, and each page reduced to its own concern: doctor listing, single profile, registration, appointment, dashboard.",
+      },
+      {
+        step: "STAGE 02",
+        name: "Data & interaction",
+        body: "A useFetch hook centralises loading and error state; useDebounce holds search input for 500ms before filtering. useMemo keeps the filtered list off the critical path, and pagination renders four doctors at a time instead of the whole set.",
+      },
+      {
+        step: "STAGE 03",
+        name: "Routing & access",
+        body: "React Router 7 drives ten client-side routes. A ProtectedRoute wrapper gates five of them and redirects unauthenticated visitors to login.",
+      },
+    ],
+    evalRows: [
+      { measure: "Responsive range", result: "8 widths", method: "360–1400px, no h-scroll" },
+      { measure: "Search debounce", result: "500ms", method: "useDebounce hook" },
+      { measure: "Routes gated", result: "5 of 10", method: "ProtectedRoute wrapper" },
+      { measure: "List page size", result: "4 per page", method: "Pagination" },
+    ],
+    stack: [
+      "React 19",
+      "Vite 8",
+      "React Router 7",
+      "Bootstrap 5.3",
+      "Axios",
+      "Font Awesome",
+      "ESLint",
+      "Vercel",
+    ],
     deploy:
-      "Continuously deployed to Vercel from the main branch, with preview deployments on every push.",
-    next: [],
+      "Continuously deployed to Vercel from the main branch, with a preview deployment on every push. Doctor data is currently served from a local JSON file — there is no backend yet, and the login is a localStorage flag rather than real authentication.",
+    next: [
+      "Build the backend — Flask or Django over PostgreSQL — so doctors, patients and appointments come from a database instead of a local JSON file.",
+      "Replace the localStorage session with token-based authentication, so protected routes are actually protected rather than gated in the browser.",
+      "Persist form submissions: registration and appointment booking currently validate and then discard.",
+      "Add an admin panel for managing doctors, and email or SMS confirmation on booking.",
+    ],
   },
 ];
 
