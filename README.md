@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# manikanta.tech
 
-## Getting Started
+Personal portfolio for Manikanta Pudi. Next.js App Router, TypeScript, Tailwind v4,
+deployed on Vercel.
 
-First, run the development server:
+## Running it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script              | What it does                    |
+| ------------------- | ------------------------------- |
+| `npm run dev`       | Dev server on port 3000         |
+| `npm run build`     | Production build                |
+| `npm run start`     | Serve the production build      |
+| `npm run lint`      | ESLint                          |
+| `npm run typecheck` | TypeScript, no emit             |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The scripts call `node ./node_modules/...` directly rather than using the
+package binaries. The ampersand in the `Full Stack & AI` parent folder breaks
+npm's generated `.cmd` shims on Windows, which split the path at the `&`. Plain
+`next dev` fails here; the `node` form does not.
 
-## Learn More
+## Layout
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx          Fonts, metadata, no-flash theme script
+  page.tsx            Home page, all sections
+  globals.css         Design tokens and base styles
+  work/[slug]/        Case study pages, one per project
+  sitemap.ts          Generated from the project list
+components/           Header, footer, section heading, theme toggle
+lib/projects.ts       Every project, as data
+Portfolio Design/     The original Claude Design canvas export (reference only)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Adding a project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Append an entry to `PROJECTS` in `lib/projects.ts`. It appears in the work grid,
+gets a `/work/<slug>` case study, and lands in the sitemap. No layout changes.
 
-## Deploy on Vercel
+Set `draft: true` to keep something out of the site while you write it.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`track` is `"ai"`, `"front-end"`, or `"full-stack"`, and drives the badge on the
+card. Keep it honest: `medicare-hms` is `front-end` until its backend exists.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design
+
+The visual source of truth is the artboard export in `Portfolio Design/`,
+specifically the inline `:root` block at the top of `Portfolio.dc.html` and
+`Portfolio Dark.dc.html`.
+
+Do not take tokens from `Portfolio Design/_ds/modernist-*/styles.css`. That
+stylesheet documents a red palette which the artboards deliberately override
+with the warm cream and burnt orange the site actually uses.
+
+Both artboards are structurally identical and differ only in colour, so light
+and dark are one component tree over two sets of CSS variables, defined in
+`app/globals.css`.
+
+House rules from the design system:
+
+- No border radius anywhere. Squares are deliberate.
+- 2px rules between major sections, lighter rules inside a section's grid.
+- Everything flush left, including button labels.
+- Prose has no em dashes. The ones in labels like `01 — Selected work` are
+  typography from the artboards and stay.
+
+## Deploying
+
+Pushes to `main` deploy to production on Vercel. Every other push gets a
+preview URL.
