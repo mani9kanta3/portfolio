@@ -20,7 +20,7 @@ const EXPERIENCE = [
     company: "Infosys Springboard",
     bullets: [
       "Built an AI packaging recommendation engine across 25 materials and 13 categories, returning ranked suitability, cost and CO₂ predictions in real time.",
-      "Trained Random Forest and XGBoost on 2,275 samples with 15 engineered features — 0.97+ R² suitability, 0.98+ R² CO₂ estimation.",
+      "Trained Random Forest and XGBoost on 2,275 samples with 15 engineered features, reaching 0.97+ R² suitability and 0.98+ R² CO₂ estimation.",
       "Served the models through a Flask REST API with joblib model loading, deployed on Render with managed PostgreSQL.",
     ],
   },
@@ -30,7 +30,7 @@ const EXPERIENCE = [
     role: "Data Analyst Intern",
     company: "Techmatrics Solution",
     bullets: [
-      "Analysed 6.7M+ retail transactions and showed that 20% discounting cut net revenue despite higher volume — delivered as a pricing recommendation.",
+      "Analysed 6.7M+ retail transactions and showed that 20% discounting cut net revenue despite higher volume, and delivered that as a pricing recommendation.",
       "Wrote multi-table JOINs, CTEs and window functions against PostgreSQL, cutting query time and removing manual prep from recurring reports.",
       "Built Tableau dashboards on revenue by category, customer segment and region, plus reusable Python cleaning and validation functions.",
     ],
@@ -117,47 +117,79 @@ export default function Home() {
             </div>
 
             <h1 className="display mb-8 max-w-[13ch] text-[clamp(44px,9vw,96px)] tracking-[-0.045em] lg:mb-[34px]">
-              Ship the model. Then ship the system around it.
+              Build the model. Then ship it.
             </h1>
 
             <p className="max-w-[52ch] text-lg leading-[1.55] text-muted">
-              I build LLM retrieval systems and the production backends that
-              serve them — a 3-stage RAG pipeline at 0.955 hit rate, an ML
-              recommender at 0.97+ R², and the APIs, schemas and containers
-              underneath both. Everything measured, everything deployed.
+              I build LLM retrieval systems, ML models, and the APIs that serve
+              them. Two are live: a RAG pipeline at 0.955 hit rate, and an ML
+              recommender at 0.97+ R². Both measured, both deployed.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <Link
                 href="#work"
-                className="label bg-accent px-6 py-4 text-on-accent transition-colors hover:bg-accent-hover"
+                className="label bg-ink px-[30px] py-[17px] text-bg transition-colors hover:bg-accent"
               >
                 Selected work
               </Link>
               <Link
                 href="#contact"
-                className="label border-2 border-divider px-6 py-4 text-ink transition-colors hover:border-accent hover:text-accent"
+                className="label border-2 border-ink px-[30px] py-[15px] text-ink transition-colors hover:border-accent hover:bg-accent hover:text-on-accent"
               >
                 Get in touch
               </Link>
+              <div className="ml-3 flex gap-6">
+                <a
+                  href="https://github.com/Mani9kanta3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label font-semibold tracking-[0.1em] text-muted transition-colors hover:text-accent"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/manikanta3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label font-semibold tracking-[0.1em] text-muted transition-colors hover:text-accent"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Portrait: prints black and white, per the design system. */}
-          <div className="relative flex min-h-[320px] items-stretch border-t-2 border-edge lg:border-l-2 lg:border-t-0">
-            <Image
-              src="/profile-photo.png"
-              alt="Manikanta Pudi"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 42vw"
-              className="grayscale-photo object-cover object-top"
+          {/* Portrait: an oval over a floating accent oval on grid paper, as
+              drawn in the artboard. Full colour — the design system's grayscale
+              rule is for content photography, not this portrait. */}
+          <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden border-t-2 border-edge lg:min-h-[640px] lg:border-l-2 lg:border-t-0">
+            <div aria-hidden className="grid-paper absolute inset-0" />
+            <div
+              aria-hidden
+              className="animate-float absolute w-[74%] max-w-[420px] bg-accent"
+              style={{ aspectRatio: "1 / 1.18", borderRadius: "50%" }}
             />
-            <div className="absolute bottom-0 left-0 right-0 flex flex-wrap gap-x-6 gap-y-1 border-t-2 border-edge bg-bg/95 px-5 py-3 backdrop-blur-sm">
-              <span className="label text-muted">
+            <div
+              className="relative z-[2] w-[60%] max-w-[340px] overflow-hidden"
+              style={{ aspectRatio: "1 / 1.3", borderRadius: "50%" }}
+            >
+              <Image
+                src="/profile-photo.png"
+                alt="Manikanta Pudi"
+                fill
+                priority
+                sizes="(max-width: 1024px) 60vw, 340px"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 z-[3] flex flex-wrap justify-between gap-x-6 gap-y-1 border-t-2 border-divider bg-bg px-5 py-4 sm:px-7">
+              <span className="label tracking-[0.2em] font-semibold text-muted">
                 B.E. CSE (AI &amp; ML) · 2025
               </span>
-              <span className="label text-accent">Open to roles</span>
+              <span className="label tracking-[0.2em] font-semibold text-accent">
+                Open to roles
+              </span>
             </div>
           </div>
         </section>
@@ -361,8 +393,8 @@ export default function Home() {
               <p>
                 A retrieval system that answers well in a notebook and drifts in
                 production isn&apos;t finished. So I build the evaluation
-                harness first — a 22-question dataset, LLM-as-judge scoring for
-                faithfulness and citation accuracy, quality gates in CI that
+                harness first: a 22-question dataset, LLM-as-judge scoring for
+                faithfulness and citation accuracy, and quality gates in CI that
                 refuse the deploy when the metric degrades.
               </p>
               <p>

@@ -134,7 +134,31 @@
   }
 }
 
+/* The portrait's slow drift, carried over from the artboard. Disabled by the
+   reduced-motion block above. */
+@keyframes mk-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
 @layer utilities {
+  .animate-float {
+    animation: mk-float 9s ease-in-out infinite;
+  }
+
+  /* Faint 64px grid paper behind the portrait. */
+  .grid-paper {
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+  }
+
   /* Every content photograph prints in pure black and white. */
   .grayscale-photo {
     filter: grayscale(100%) contrast(1.05);

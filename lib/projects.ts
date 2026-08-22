@@ -56,8 +56,8 @@ export const PROJECTS: Project[] = [
     title: "PolicyQA",
     summary:
       "A 3-stage retrieval pipeline over nine Indian labour-law documents. BM25 keyword search fused with vector semantics by Reciprocal Rank Fusion, then cross-encoder reranking down to five passages. Quality gates block deploys when metrics slip.",
-    lede: "A question-answering service over nine Indian labour-law documents, built so that every answer can be traced back to the clause it came from — and so the pipeline cannot ship if its numbers slip.",
-    role: "Solo — retrieval, eval, deploy",
+    lede: "A question-answering service over nine Indian labour-law documents, built so that every answer can be traced back to the clause it came from, and so the pipeline cannot ship if its numbers slip.",
+    role: "Solo: retrieval, eval, deploy",
     timeline: "January 2026",
     status: "Live on Cloud Run",
     metrics: [
@@ -82,7 +82,7 @@ export const PROJECTS: Project[] = [
       "Langfuse",
     ],
     problem1:
-      "Labour-law questions are keyword-sensitive — a section number matters as much as the semantics around it. Pure vector search misses exact references; pure keyword search misses paraphrase.",
+      "Labour-law questions are keyword-sensitive. A section number matters as much as the semantics around it. Pure vector search misses exact references; pure keyword search misses paraphrase.",
     problem2:
       "So the answer had to be hybrid, and it had to be verifiable: a legal answer without a citation is worse than no answer at all.",
     stages: [
@@ -122,7 +122,7 @@ export const PROJECTS: Project[] = [
       "Langfuse",
     ],
     deploy:
-      "Containerised with Docker and deployed to Google Cloud Run — FastAPI backend, Streamlit front end, automated evaluation as a quality gate that blocks the deploy on metric degradation.",
+      "Containerised with Docker and deployed to Google Cloud Run: a FastAPI backend, a Streamlit front end, and automated evaluation as a quality gate that blocks the deploy on metric degradation.",
     next: [
       "Grow the eval set past 22 questions and stratify it by document, so per-source regressions surface individually.",
       "Swap in a fine-tuned reranker and A/B it against ms-marco on the same harness.",
@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
     title: "EcoPackAI",
     summary:
       "Ranks 25 packaging materials across 13 product categories by suitability, cost and carbon impact. A composite eco-score makes the ranking readable; eleven REST endpoints and a normalised PostgreSQL schema make it usable.",
-    lede: "A recommendation platform that ranks 25 packaging materials across 13 product categories by suitability, cost and carbon impact — and explains the ranking instead of just emitting a score.",
+    lede: "A recommendation platform that ranks 25 packaging materials across 13 product categories by suitability, cost and carbon impact, and explains the ranking instead of just emitting a score.",
     role: "ML + backend, Infosys Springboard",
     timeline: "December 2025 — February 2026",
     status: "Live on Render",
@@ -161,7 +161,7 @@ export const PROJECTS: Project[] = [
       "Render",
     ],
     problem1:
-      "Packaging choices trade three things against each other — fitness for the product, unit cost, and carbon footprint — and teams were making the call on intuition.",
+      "Packaging choices trade three things against each other: fitness for the product, unit cost, and carbon footprint. Teams were making the call on intuition.",
     problem2:
       "A single opaque score would not have been trusted, so the ranking needed an interpretable composite: biodegradability, recyclability and carbon impact folded into one eco-score you can decompose.",
     stages: [
@@ -216,9 +216,9 @@ export const PROJECTS: Project[] = [
     kicker: "Front end · In progress",
     title: "MediCare HMS",
     summary:
-      "The patient-facing side of a hospital system — browse doctors, book appointments, register, and a protected dashboard. Refactored out of a duplicated HTML/Bootstrap site into a React component architecture with custom hooks for fetching and debounced search. Backend is next.",
+      "The patient-facing side of a hospital system: browse doctors, book appointments, register, and a protected dashboard. Refactored out of a duplicated HTML/Bootstrap site into a React component architecture with custom hooks for fetching and debounced search. Backend is next.",
     lede: "The patient-facing half of a hospital management system: browsing doctors, booking appointments, registering, and a protected dashboard behind a login. It began as a plain HTML and Bootstrap site and was rebuilt in React to stop copying the same navbar and footer into every page.",
-    role: "Solo — front end, application architecture",
+    role: "Solo: front end, application architecture",
     timeline: "In progress, 2026",
     status: "Front end live · backend in progress",
     repo: "https://github.com/Mani9kanta3/hospital-management-system",
@@ -244,7 +244,7 @@ export const PROJECTS: Project[] = [
       {
         step: "STAGE 01",
         name: "Component refactor",
-        body: "Persistent layout — Navbar and Footer — lifted into shared components, and each page reduced to its own concern: doctor listing, single profile, registration, appointment, dashboard.",
+        body: "Persistent layout, the Navbar and Footer, lifted into shared components, and each page reduced to its own concern: doctor listing, single profile, registration, appointment, dashboard.",
       },
       {
         step: "STAGE 02",
@@ -274,9 +274,9 @@ export const PROJECTS: Project[] = [
       "Vercel",
     ],
     deploy:
-      "Continuously deployed to Vercel from the main branch, with a preview deployment on every push. Doctor data is currently served from a local JSON file — there is no backend yet, and the login is a localStorage flag rather than real authentication.",
+      "Continuously deployed to Vercel from the main branch, with a preview deployment on every push. Doctor data is currently served from a local JSON file. There is no backend yet, and the login is a localStorage flag rather than real authentication.",
     next: [
-      "Build the backend — Flask or Django over PostgreSQL — so doctors, patients and appointments come from a database instead of a local JSON file.",
+      "Build the backend with Flask or Django over PostgreSQL, so doctors, patients and appointments come from a database instead of a local JSON file.",
       "Replace the localStorage session with token-based authentication, so protected routes are actually protected rather than gated in the browser.",
       "Persist form submissions: registration and appointment booking currently validate and then discard.",
       "Add an admin panel for managing doctors, and email or SMS confirmation on booking.",
