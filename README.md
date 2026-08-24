@@ -21,9 +21,10 @@ Then open http://localhost:3000.
 | `npm run typecheck` | TypeScript, no emit             |
 
 The scripts call `node ./node_modules/...` directly rather than using the
-package binaries. The ampersand in the `Full Stack & AI` parent folder breaks
-npm's generated `.cmd` shims on Windows, which split the path at the `&`. Plain
-`next dev` fails here; the `node` form does not.
+package binaries. This was originally a workaround: the parent folder used to be
+named `Full Stack & AI`, and the ampersand broke npm's generated `.cmd` shims on
+Windows, which split the path at the `&`. The folder has since been renamed, so
+plain `next dev` works again, but the `node` form is harmless and portable.
 
 ## Layout
 

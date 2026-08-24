@@ -56,7 +56,7 @@ const STACK = [
   {
     group: "Backend",
     items:
-      "FastAPI · Flask · Pydantic · Uvicorn · Middleware & rate limiting · Async programming · Pytest",
+      "Django · Django REST Framework · FastAPI · Flask · JWT auth · Pydantic · Uvicorn · Middleware & rate limiting · Transactions & row locking · Pytest",
   },
   {
     group: "Front end",

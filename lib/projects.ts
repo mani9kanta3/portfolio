@@ -35,6 +35,12 @@ export type Project = {
   status: string;
   repo?: string;
   live?: string;
+  /** Shown beside the live link, e.g. a free-tier cold start warning. */
+  liveNote?: string;
+  /** Sign-in details for a public demo instance. */
+  demoCredentials?: string;
+  /** Key into the DIAGRAMS registry in app/work/[slug]/page.tsx. */
+  diagram?: string;
   metrics: Metric[];
   /** Compact metrics shown on the home page card. */
   cardMetrics: Metric[];
@@ -49,6 +55,109 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "anvil-hardware",
+    track: "full-stack",
+    kicker: "Full stack · 2026",
+    title: "Anvil Hardware",
+    summary:
+      "A point of sale and stock system for a hardware store. Django and DRF over PostgreSQL, React on the counter. Built around one rule: stock can never be oversold, even when two cashiers bill the last unit at the same instant.",
+    lede: "A billing and inventory system for a single hardware outlet. Goods come in from suppliers, cashiers bill at the counter, and the owner sees what is selling and what is running out. The whole design is organised around one correctness problem that most systems this size get wrong.",
+    role: "Solo — backend, frontend, deploy",
+    timeline: "2026",
+    status: "Live on Vercel and Render",
+    repo: "https://github.com/mani9kanta3/hardware-store-full-stack",
+    live: "https://anvil-hardware-store.vercel.app",
+    liveNote:
+      "Hosted on a free tier that sleeps after 15 minutes. The first request can take about 50 seconds to wake the API.",
+    demoCredentials: "owner / demo1234 · cashier / demo1234",
+    diagram: "anvil",
+    metrics: [
+      { value: "7", label: "Database tables" },
+      { value: "3", label: "Django apps" },
+      { value: "2", label: "Roles, enforced server side" },
+      { value: "3", label: "Tests on the billing rule" },
+    ],
+    cardMetrics: [
+      { value: "7", label: "Tables, PROTECT on FKs" },
+      { value: "3", label: "Django apps" },
+      { value: "2", label: "Roles, enforced server side" },
+      { value: "400ms", label: "Search debounce at the counter" },
+    ],
+    tags: [
+      "Django 5.1",
+      "DRF",
+      "PostgreSQL 17",
+      "React 19",
+      "Vite 8",
+      "JWT",
+      "pytest",
+    ],
+    problem1:
+      "Two cashiers bill the last box of screws at the same moment. Under PostgreSQL's default READ COMMITTED isolation, both transactions read the same available quantity, both pass the stock check, and both write. Stock goes negative and the shop has sold something it does not have.",
+    problem2:
+      "It is invisible in testing, because you have to hit it at exactly the wrong moment. So the fix cannot be a careful check in application code. The database itself has to refuse to let two transactions touch the same row at once.",
+    stages: [
+      {
+        step: "STAGE 01",
+        name: "Lock in a fixed order",
+        body: "Product ids are sorted, then locked with SELECT ... FOR UPDATE before any availability check. Sorting gives every transaction the same global lock order, so two bills touching the same pair of products cannot deadlock waiting on each other.",
+      },
+      {
+        step: "STAGE 02",
+        name: "Check, then decrement",
+        body: "Each line is validated against the locked row and stock is decremented as it passes. A second transaction waits at the lock rather than reading stale stock, then re-reads the committed state and correctly rejects the oversale.",
+      },
+      {
+        step: "STAGE 03",
+        name: "Commit, or discard all of it",
+        body: "The whole bill is one atomic block. If any line is short, the error rolls back every write above it, including lines that already succeeded. The cashier gets a 400 naming the product and the quantity actually available.",
+      },
+    ],
+    evalRows: [
+      {
+        measure: "Oversell under concurrent bills",
+        result: "Prevented",
+        method: "SELECT … FOR UPDATE",
+      },
+      {
+        measure: "Deadlock on shared products",
+        result: "Avoided",
+        method: "Sorted lock ordering",
+      },
+      {
+        measure: "Partial bill failure",
+        result: "Full rollback",
+        method: "pytest, transaction=True",
+      },
+      {
+        measure: "Goods receipt race",
+        result: "Avoided",
+        method: "F() expression, atomic",
+      },
+    ],
+    stack: [
+      "Python 3.12",
+      "Django 5.1",
+      "Django REST Framework",
+      "PostgreSQL 17",
+      "SimpleJWT",
+      "React 19",
+      "Vite 8",
+      "Bootstrap 5.3",
+      "pytest",
+      "Vercel",
+      "Render",
+    ],
+    deploy:
+      "React front end on Vercel, Django API and PostgreSQL 17 on Render. Business rules live in a service module rather than the view, so the transaction boundary and the locking belong to the operation itself and can be tested or called outside an HTTP request. Tests run against PostgreSQL with real transaction boundaries, because SQLite accepts select_for_update and silently ignores it — the most important behaviour in the system would pass in development and fail in production.",
+    next: [
+      "Add sale reversal. Bills currently cannot be voided or amended without separate compensating transaction logic.",
+      "Model tax properly: GST rates, HSN codes and tax inclusive pricing are all out of scope today.",
+      "Add a stock adjustment path, so damage, theft and stocktake corrections have somewhere to go.",
+      "Keep an audit trail on the catalogue, since price and reorder level changes currently overwrite in place.",
+    ],
+  },
   {
     slug: "policyqa",
     track: "ai",

@@ -3,12 +3,18 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { AnvilArchitecture } from "@/components/diagrams/anvil-architecture";
 import {
   VISIBLE_PROJECTS,
   getProject,
   getNextProject,
   TRACK_LABEL,
 } from "@/lib/projects";
+
+/** Case study diagrams, keyed by the `diagram` field on a project. */
+const DIAGRAMS: Record<string, React.ReactNode> = {
+  anvil: <AnvilArchitecture />,
+};
 
 export function generateStaticParams() {
   return VISIBLE_PROJECTS.map((p) => ({ slug: p.slug }));
@@ -98,26 +104,45 @@ export default async function CaseStudy({
         </section>
 
         {(project.repo || project.live) && (
-          <section className="flex flex-wrap gap-6 border-b-2 border-divider px-5 py-6 sm:px-14">
-            {project.repo && (
-              <a
-                href={project.repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="label text-accent transition-colors hover:text-accent-hover"
-              >
-                GitHub ↗
-              </a>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="label text-accent transition-colors hover:text-accent-hover"
-              >
-                Live app ↗
-              </a>
+          <section className="border-b-2 border-divider px-5 py-6 sm:px-14">
+            <div className="flex flex-wrap gap-6">
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label text-accent transition-colors hover:text-accent-hover"
+                >
+                  GitHub ↗
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="label text-accent transition-colors hover:text-accent-hover"
+                >
+                  Live app ↗
+                </a>
+              )}
+              {project.demoCredentials && (
+                <span className="label text-muted">
+                  Demo login:{" "}
+                  {/* Never uppercase this. The .label class would render
+                      demo1234 as DEMO1234 and the password is case sensitive. */}
+                  <span className="font-mono normal-case tracking-normal">
+                    {project.demoCredentials}
+                  </span>
+                </span>
+              )}
+            </div>
+            {/* A visitor who hits a cold free tier and waits assumes it is
+                broken. Saying so up front is cheaper than losing them. */}
+            {project.liveNote && (
+              <p className="mt-4 max-w-[64ch] text-sm text-muted">
+                {project.liveNote}
+              </p>
             )}
           </section>
         )}
@@ -156,10 +181,15 @@ export default async function CaseStudy({
           </div>
         </section>
 
-        {project.stages.length > 0 && (
+        {(project.stages.length > 0 || project.diagram) && (
           <section className="border-b-2 border-divider">
             <div className="px-5 py-12 sm:px-14">
               <div className="label text-muted">Architecture</div>
+              {project.diagram && DIAGRAMS[project.diagram] && (
+                <figure className="mt-8">
+                  {DIAGRAMS[project.diagram]}
+                </figure>
+              )}
             </div>
             <div className="grid lg:grid-cols-3">
               {project.stages.map((stage, i) => (
