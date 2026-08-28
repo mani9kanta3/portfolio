@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s — Manikanta Pudi",
   },
   description:
-    "AI and full stack engineer in Hyderabad. I build LLM retrieval systems, ML models, and the APIs that serve them. Two are live: a RAG pipeline at 0.955 hit rate, and an ML recommender at 0.97+ R².",
+    "AI and full stack engineer in Hyderabad. I build systems and measure them honestly: a scholarship assistant that refuses to guess, and a billing system that cannot oversell stock. Both live, both tested.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     siteName: "Manikanta Pudi",
     title: "Manikanta Pudi — AI & Full Stack Engineer",
     description:
-      "AI and full stack engineer in Hyderabad. I build LLM retrieval systems, ML models, and the APIs that serve them.",
+      "AI and full stack engineer in Hyderabad. I build systems and measure them honestly.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Manikanta Pudi — AI & Full Stack Engineer",
     description:
-      "AI and full stack engineer in Hyderabad. I build LLM retrieval systems, ML models, and the APIs that serve them.",
+      "AI and full stack engineer in Hyderabad. I build systems and measure them honestly.",
   },
   robots: { index: true, follow: true },
 };

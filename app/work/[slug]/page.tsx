@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AnvilArchitecture } from "@/components/diagrams/anvil-architecture";
+import { ScholarshipArchitecture } from "@/components/diagrams/scholarship-architecture";
 import {
   VISIBLE_PROJECTS,
   getProject,
@@ -14,6 +15,7 @@ import {
 /** Case study diagrams, keyed by the `diagram` field on a project. */
 const DIAGRAMS: Record<string, React.ReactNode> = {
   anvil: <AnvilArchitecture />,
+  scholarship: <ScholarshipArchitecture />,
 };
 
 export function generateStaticParams() {

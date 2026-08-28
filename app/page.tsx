@@ -6,8 +6,8 @@ import { SectionHead } from "@/components/section-head";
 import { VISIBLE_PROJECTS, TRACK_LABEL } from "@/lib/projects";
 
 const HEADLINE_STATS = [
-  { value: "0.955", label: "RAG retrieval hit rate", accent: true },
-  { value: "0.941", label: "Answer faithfulness" },
+  { value: "0.92", label: "Threshold accuracy, up from 0.83", accent: true },
+  { value: "1.00", label: "Answer groundedness" },
   { value: "0.97", suffix: "+", label: "R², suitability model" },
   { value: "6.7M", suffix: "+", label: "Records analysed" },
 ];
@@ -117,13 +117,13 @@ export default function Home() {
             </div>
 
             <h1 className="display mb-8 max-w-[13ch] text-[clamp(44px,9vw,96px)] tracking-[-0.045em] lg:mb-[34px]">
-              Build the model. Then ship it.
+              The demo is the easy part.
             </h1>
 
             <p className="max-w-[52ch] text-lg leading-[1.55] text-muted">
-              I build LLM retrieval systems, ML models, and the APIs that serve
-              them. Two are live: a RAG pipeline at 0.955 hit rate, and an ML
-              recommender at 0.97+ R². Both measured, both deployed.
+              I build AI and full stack systems, then measure them honestly. A
+              scholarship assistant that refuses to guess. A billing system that
+              cannot oversell stock. Both live, both tested.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
