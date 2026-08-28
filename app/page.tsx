@@ -438,7 +438,7 @@ export default function Home() {
                 B.E. Computer Science — AI &amp; Machine Learning
               </div>
               <div className="label mt-1.5 font-medium text-muted">
-                Chandigarh University, Mohali · CGPA 8.0/10 · 2021–2025
+                Chandigarh University, Mohali · CGPA 7.98/10 · 2021–2025
               </div>
               <p className="mt-4 max-w-[54ch] text-base text-muted">
                 Final year project: real-time traffic sign detection with
