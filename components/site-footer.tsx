@@ -17,10 +17,10 @@ export function SiteFooter() {
           </a>
           <div className="label mb-3 mt-6 text-muted">Phone</div>
           <a
-            href="tel:+919063424060"
+            href="tel:+919959540601"
             className="block text-lg font-semibold transition-colors hover:text-accent"
           >
-            +91 90634 24060
+            +91 99595 40601
           </a>
         </div>
 

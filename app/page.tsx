@@ -60,7 +60,8 @@ const STACK = [
   },
   {
     group: "Front end",
-    items: "React · Vite · Next.js · TypeScript · Tailwind CSS · Streamlit",
+    items:
+      "HTML5 · CSS3 · React · Vite · Next.js · TypeScript · Tailwind CSS · Bootstrap · Responsive layouts · Streamlit",
   },
   {
     group: "Databases",
