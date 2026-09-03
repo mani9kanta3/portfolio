@@ -46,7 +46,7 @@ const STACK = [
   {
     group: "AI & LLM",
     items:
-      "LangChain · Google Gemini · HuggingFace Transformers · ChromaDB · Langfuse · Hybrid search (BM25 + vector) · Cross-encoder reranking · Retrieval evaluation",
+      "LangChain · LangGraph · MCP · Google Gemini · Groq · ChromaDB · Langfuse · RAGAS · Hybrid retrieval · Cross-encoder reranking · Retrieval evaluation",
   },
   {
     group: "ML & data",

@@ -157,6 +157,108 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    slug: "sql-analyst-agent",
+    track: "ai",
+    kicker: "Agentic AI · 2026",
+    title: "SQL Analyst Agent",
+    summary:
+      "Ask a question in English, get the answer and the SQL that produced it. A LangGraph agent writes a query, runs it, reads the structured error, and repairs itself using a strategy chosen per SQLSTATE. It stops after three attempts and cannot do damage, because the credential it holds cannot write.",
+    lede: "A natural language interface to a PostgreSQL database that checks its own work. The database is an objective oracle, so the agent can tell whether its query was wrong and why, which is what makes the repair loop something other than a retry with a prayer.",
+    role: "Solo — agent, MCP server, evaluation",
+    timeline: "2026",
+    status: "Built and tested, not yet deployed",
+    repo: "https://github.com/mani9kanta3/sql-agent",
+    liveNote:
+      "No hosted demo yet. It runs locally, as a CLI, and as an MCP server over stdio for clients like Claude Desktop.",
+    diagram: "sqlagent",
+    metrics: [
+      { value: "118", label: "Passing tests" },
+      { value: "0", label: "Unsafe queries executed" },
+      { value: "12", label: "SQLSTATE repair strategies" },
+      { value: "3", label: "Attempt cap before it stops" },
+    ],
+    cardMetrics: [
+      { value: "118", label: "Tests" },
+      { value: "0", label: "Unsafe SQL reaching the database" },
+      { value: "12", label: "Error types, each with a strategy" },
+      { value: "3", label: "Credentials, least privilege" },
+    ],
+    tags: [
+      "LangGraph",
+      "MCP",
+      "FastAPI",
+      "PostgreSQL 17",
+      "sqlglot",
+      "Groq",
+      "Langfuse",
+    ],
+    problem1:
+      "Text-to-SQL demos are common and mostly the same: a question goes in, a query comes out, and nobody checks it. They fail silently, they have nothing to measure, and there is no reason for the model to get a second try.",
+    problem2:
+      "The database changes that. Syntax errors, missing columns, type mismatches and timeouts are all objectively detectable, so the agent can read the actual failure and rewrite. That is what justifies a loop. It also needs a stopping rule, because an agent that loops forever on an impossible question is worse than one that fails fast.",
+    stages: [
+      {
+        step: "STAGE 01",
+        name: "Select the schema",
+        body: "Hand-written table descriptions are embedded with bge-small-en-v1.5 and searched semantically, so 3 to 5 relevant tables from a 15-table schema reach the prompt instead of all of them. The descriptions say what each table is not for, which stops irrelevant joins.",
+      },
+      {
+        step: "STAGE 02",
+        name: "Validate before executing",
+        body: "sqlglot parses the query to an AST and rejects multiple statements, any write anywhere in the tree, unknown tables and deny-listed functions, then forces a LIMIT. Only then does it run, on a SELECT-only role inside a read-only transaction with a 5 second timeout that always rolls back.",
+      },
+      {
+        step: "STAGE 03",
+        name: "Route the error, or stop",
+        body: "Each SQLSTATE maps to its own repair: 42703 widens schema retrieval to 9 tables, 42702 forces column aliasing, 57014 simplifies the query, and 42501 is never repaired. State carries the full history so the model cannot regenerate a query that already failed.",
+      },
+    ],
+    evalRows: [
+      {
+        measure: "Execution accuracy, 30 answerable",
+        result: "73.3% → 76.7%",
+        method: "Result sets, not SQL text",
+      },
+      {
+        measure: "Hard and ambiguous subset",
+        result: "5/10 → 6/10",
+        method: "Same 40-question set",
+      },
+      {
+        measure: "Rescued by the repair loop",
+        result: "1 of 1",
+        method: "Two strategies in sequence",
+      },
+      {
+        measure: "Unsafe SQL reaching the database",
+        result: "0",
+        method: "Parser plus read-only role",
+      },
+    ],
+    stack: [
+      "Python 3.12",
+      "LangGraph 0.2",
+      "MCP",
+      "FastAPI",
+      "PostgreSQL 17",
+      "sqlglot",
+      "Groq",
+      "bge-small-en-v1.5",
+      "Langfuse v4",
+      "React 19",
+      "Vite",
+      "pytest",
+    ],
+    deploy:
+      "Not hosted yet. It runs locally behind FastAPI, as a CLI, and as an MCP server over stdio, so the same four tools work from Claude Desktop or any MCP client. Safety lives in the tool layer rather than the agent, which means it holds no matter what calls it. Three separate database credentials enforce least privilege: the agent's role can only SELECT, a second role can only INSERT into the query log and cannot read it back, and admin rights exist only in setup scripts. Every question is traced in Langfuse with cost computed from real token counts, and a scheduled check diffs the live schema against a snapshot to catch drift.",
+    next: [
+      "Treat the accuracy gain as unproven. It is one question on a 30-question set, which carries roughly an 8 point binomial spread, so the improvement is causally explained but not statistically significant. A larger set is the only fix.",
+      "Get an evaluation set written by someone else. The current 40 questions were authored by the same person who built the schema, so they are not independent.",
+      "Wire up Sentry and UptimeRobot, which are planned rather than done.",
+      "Add conversation memory for follow-up questions, and support a second database dialect.",
+    ],
+  },
+  {
     slug: "scholarship-assistant",
     track: "ai",
     kicker: "Hybrid RAG · Aug 2026",

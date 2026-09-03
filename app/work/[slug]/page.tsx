@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AnvilArchitecture } from "@/components/diagrams/anvil-architecture";
 import { ScholarshipArchitecture } from "@/components/diagrams/scholarship-architecture";
+import { SqlAgentArchitecture } from "@/components/diagrams/sql-agent-architecture";
 import {
   VISIBLE_PROJECTS,
   getProject,
@@ -16,6 +17,7 @@ import {
 const DIAGRAMS: Record<string, React.ReactNode> = {
   anvil: <AnvilArchitecture />,
   scholarship: <ScholarshipArchitecture />,
+  sqlagent: <SqlAgentArchitecture />,
 };
 
 export function generateStaticParams() {
