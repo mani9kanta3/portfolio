@@ -460,14 +460,14 @@ export default function Home() {
 
           <div className="grid border-t-2 border-edge md:grid-cols-2">
             <a
-              href="/resume/ManikantaPudi_AI_Engineer_Resume.docx"
+              href="/resume/ManikantaPudi_AI_ML_Engineer_Resume.pdf"
               download
               className="group flex items-baseline justify-between gap-4 border-b-2 border-edge px-5 py-8 transition-colors hover:bg-surface sm:px-14 md:border-b-0 md:border-r-2"
             >
               <span>
                 <span className="label block text-muted">Résumé — download</span>
                 <span className="mt-2 block text-2xl font-bold tracking-[-0.025em] group-hover:text-accent">
-                  AI Engineer
+                  AI / ML Engineer
                 </span>
               </span>
               <span aria-hidden className="text-2xl text-accent">
@@ -475,14 +475,14 @@ export default function Home() {
               </span>
             </a>
             <a
-              href="/resume/ManikantaPudi_Python_Developer_Resume.docx"
+              href="/resume/ManikantaPudi_Software_Engineer_Resume.pdf"
               download
               className="group flex items-baseline justify-between gap-4 px-5 py-8 transition-colors hover:bg-surface sm:px-14"
             >
               <span>
                 <span className="label block text-muted">Résumé — download</span>
                 <span className="mt-2 block text-2xl font-bold tracking-[-0.025em] group-hover:text-accent">
-                  Python Developer
+                  Software Engineer
                 </span>
               </span>
               <span aria-hidden className="text-2xl text-accent">
