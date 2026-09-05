@@ -6,8 +6,8 @@ import { SectionHead } from "@/components/section-head";
 import { VISIBLE_PROJECTS, TRACK_LABEL } from "@/lib/projects";
 
 const HEADLINE_STATS = [
-  { value: "0.92", label: "Threshold accuracy, up from 0.83", accent: true },
-  { value: "1.00", label: "Answer groundedness" },
+  { value: "0", label: "Unsafe queries reached the database", accent: true },
+  { value: "0.92", label: "Threshold accuracy, up from 0.83" },
   { value: "0.97", suffix: "+", label: "R², suitability model" },
   { value: "6.7M", suffix: "+", label: "Records analysed" },
 ];
@@ -122,9 +122,10 @@ export default function Home() {
             </h1>
 
             <p className="max-w-[52ch] text-lg leading-[1.55] text-muted">
-              I build AI and full stack systems, then measure them honestly. A
-              scholarship assistant that refuses to guess. A billing system that
-              cannot oversell stock. Both live, both tested.
+              I build AI and full stack systems, then measure them honestly. An
+              agent that writes SQL and repairs its own mistakes. An assistant
+              that refuses to guess. A billing system that cannot oversell
+              stock. All three live, all three tested.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s — Manikanta Pudi",
   },
   description:
-    "AI and full stack engineer in Hyderabad. I build systems and measure them honestly: a scholarship assistant that refuses to guess, and a billing system that cannot oversell stock. Both live, both tested.",
+    "AI and full stack engineer in Hyderabad. I build systems and measure them honestly: an agent that writes SQL and repairs its own mistakes, an assistant that refuses to guess, and a billing system that cannot oversell stock.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
